@@ -21,9 +21,9 @@ exports.sendEmail = async (req, res) => {
 
     let transporter = nodemailer.createTransport({
       service: 'Gmail',
-      // host: 'smtp.gmail.com',
-      // port: 465,
-      // secure: true, // true for 465, false for other ports
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // true for 465, false for other ports
       auth: {
         user: `${process.env.REACT_APP_EMAIL}`, // generated ethereal user
         pass: `${process.env.REACT_APP_EMAIL_PASS}`, // generated ethereal password
@@ -32,7 +32,7 @@ exports.sendEmail = async (req, res) => {
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: `${req.body.firstname} 👻${process.env.REACT_APP_EMAIL}`, // sender address
+      from: `"new messages" 👻${process.env.REACT_APP_EMAIL}`, // sender address
       to: `${process.env.REACT_APP_EMAIL}`, // list of receivers
       subject: 'Hello ✔', // Subject line
       text: 'Hello world?', // plain text body
