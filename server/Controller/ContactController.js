@@ -1,9 +1,5 @@
 const nodemailer = require('nodemailer');
 
-exports.getContact = (req, res) => {
-  res.status(200).render('/');
-};
-
 exports.sendEmail = async (req, res) => {
   try {
     const outputMessage = `
